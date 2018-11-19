@@ -16,8 +16,8 @@ public class SwerveWheel {
 		this.angleMotor = new VictorSP (angleMotor);
 	    this.speedMotor = new VictorSP (speedMotor);
 	    
-	    //PID values are placeholders for now
-	    rotationController = new PIDController(1, 0, 0, new Encoder (encoderA, encoderB), this.angleMotor);
+	    
+	    rotationController = new PIDController(RobotConst.swerveP, RobotConst.swerveI, RobotConst.swerveD, new Encoder (encoderA, encoderB), this.angleMotor);
 	    
 	    rotationController.setOutputRange (-1, 1);
 	    rotationController.setContinuous ();
