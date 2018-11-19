@@ -9,14 +9,15 @@ package org.usfirst.frc.team1391.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1391.robot.Robot;
+import org.usfirst.frc.team1391.robot.RobotMap;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ExampleCommand extends Command {
-	public ExampleCommand() {
+public class DrivetrainSwerve extends Command {
+	public DrivetrainSwerve() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.kExampleSubsystem);
+		requires(Robot.myDrivetrain);
 	}
 
 	// Called just before this Command runs the first time
@@ -27,6 +28,12 @@ public class ExampleCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
+		double x1 = Robot.myOI.driveJoy.getX();
+		double y1 = -Robot.myOI.driveJoy.getY();
+		//placeholder axis port
+		double x2 = Robot.myOI.driveJoy.getRawAxis(RobotMap.swerveRotationAxisPort);
+		
+		Robot.myDrivetrain.drive(x1, y1, x2);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

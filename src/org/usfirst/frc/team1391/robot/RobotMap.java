@@ -13,14 +13,38 @@ package org.usfirst.frc.team1391.robot;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-public class RobotMap {
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
 
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
+//All temporary placeholder values
+public class RobotMap {
+	
+	/** BUTTON MAPPING **/
+	static final int driverJoystickPort = 0;
+	
+	public static final int swerveRotationAxisPort = 2;
+	
+	/** MOTOR PORTS **/
+	public final static int backRightSpeedMotorPort = 0;
+	public final static int backRightRotateMotorPort = 1;
+	
+	public final static int backLeftSpeedMotorPort = 2;
+	public final static int backLeftRotateMotorPort = 3;
+	
+	public final static int frontRightSpeedMotorPort = 4;
+	public final static int frontRightRotateMotorPort = 5;
+	
+	public final static int frontLeftSpeedMotorPort = 6;
+	public final static int frontLeftRotateMotorPort = 7;
+	
+	/** SENSOR PORTS **/
+	public final static int backRightEncoderA = 0;
+	public final static int backRightEncoderB = 1;
+	
+	public final static int backLeftEncoderA = 2;
+	public final static int backLeftEncoderB = 3;
+	
+	public final static int frontRightEncoderA = 4;
+	public final static int frontRightEncoderB = 5;
+	
+	public final static int frontLeftEncoderA = 6;
+	public final static int frontLeftEncoderB = 7;
 }
