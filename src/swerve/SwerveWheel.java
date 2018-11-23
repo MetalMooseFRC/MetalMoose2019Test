@@ -2,7 +2,7 @@ package swerve;
 
 import org.usfirst.frc.team1391.robot.RobotConst;
 
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.VictorSP;
 
@@ -12,12 +12,12 @@ public class SwerveWheel {
 	private PIDController rotationController;
 
 	
-	public SwerveWheel(int angleMotor, int speedMotor, int encoderA, int encoderB) {
+	public SwerveWheel(int angleMotor, int speedMotor, int encoderPort) {
 		this.angleMotor = new VictorSP (angleMotor);
 	    this.speedMotor = new VictorSP (speedMotor);
 	    
 	    
-	    rotationController = new PIDController(RobotConst.swerveP, RobotConst.swerveI, RobotConst.swerveD, new Encoder (encoderA, encoderB), this.angleMotor);
+	    rotationController = new PIDController(RobotConst.swerveP, RobotConst.swerveI, RobotConst.swerveD, new AnalogInput (encoderPort), this.angleMotor);
 	    
 	    rotationController.setOutputRange (-1, 1);
 	    rotationController.setContinuous ();

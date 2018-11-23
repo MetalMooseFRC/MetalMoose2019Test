@@ -36,15 +36,12 @@ public class RobotMap {
 	public final static int frontLeftRotateMotorPort = 7;
 	
 	/** SENSOR PORTS **/
-	public final static int backRightEncoderA = 0;
-	public final static int backRightEncoderB = 1;
+	public final static int backRightEncoderPort = 0;
 	
-	public final static int backLeftEncoderA = 2;
-	public final static int backLeftEncoderB = 3;
+	public final static int backLeftEncoderPort = 1;
 	
-	public final static int frontRightEncoderA = 4;
-	public final static int frontRightEncoderB = 5;
+	public final static int frontRightEncoderPort = 2;
 	
-	public final static int frontLeftEncoderA = 6;
-	public final static int frontLeftEncoderB = 7;
+	public final static int frontLeftEncoderPort = 3;
+
 }

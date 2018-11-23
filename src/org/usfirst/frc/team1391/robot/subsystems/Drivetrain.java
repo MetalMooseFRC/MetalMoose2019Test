@@ -20,13 +20,13 @@ import swerve.SwerveWheel;
 public class Drivetrain extends Subsystem {
 	//creating swerve wheels and swerve drive for drivetrain
 	private SwerveWheel backRight = new SwerveWheel (RobotMap.backRightSpeedMotorPort, RobotMap.backRightRotateMotorPort, 
-			RobotMap.backRightEncoderA, RobotMap.backRightEncoderB);
+			RobotMap.backRightEncoderPort);
 	private SwerveWheel backLeft = new SwerveWheel (RobotMap.backLeftSpeedMotorPort, RobotMap.backLeftRotateMotorPort, 
-			RobotMap.backLeftEncoderA, RobotMap.backLeftEncoderB);
+			RobotMap.backLeftEncoderPort);
 	private SwerveWheel frontRight = new SwerveWheel (RobotMap.frontRightSpeedMotorPort, RobotMap.frontRightRotateMotorPort, 
-			RobotMap.frontRightEncoderA, RobotMap.frontRightEncoderB);
+			RobotMap.frontRightEncoderPort);
 	private SwerveWheel frontLeft = new SwerveWheel (RobotMap.frontLeftSpeedMotorPort, RobotMap.frontLeftRotateMotorPort, 
-			RobotMap.frontLeftEncoderA, RobotMap.frontLeftEncoderB);
+			RobotMap.frontLeftEncoderPort);
 
 	private SwerveDrive swerveDrive = new SwerveDrive (backRight, backLeft, frontRight, frontLeft);
 
