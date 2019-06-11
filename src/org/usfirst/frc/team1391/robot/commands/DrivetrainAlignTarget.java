@@ -15,6 +15,12 @@ import org.usfirst.frc.team1391.robot.RobotMap;
  * An example command.  You can replace me with your own command.
  */
 public class DrivetrainSwerve extends Command {
+double error;
+double errorPrior;
+double integral;
+double derivative;
+double iterationSec = 0.02;
+
 	public DrivetrainSwerve() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.myDrivetrain);
@@ -23,23 +29,29 @@ public class DrivetrainSwerve extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
+        errorPrior = 0;
+        integral = 0;
+        derivative = 0;
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		double x1 = Robot.myOI.driveJoy.getX();
-		double y1 = -Robot.myOI.driveJoy.getY();
-		//placeholder axis port
-		double x2 = Robot.myOI.driveJoy.getRawAxis(RobotMap.swerveRotationAxisPort);
-		
-		Robot.myDrivetrain.robotOrientedDrive(x1, y1, x2);
+        error = Robot.tx.getDouble(0.0);
+        integral += error*iterationSec;
+        derivative = (error-errorPrior)/iterationSec;
+
+        //assume person is parallel to target and shift left/right accordingly
+        double output = RobotConst.visionP*error + RobotConst.visionI*integral + RobotConst.visionD*derivative;
+        Robot.myDrivetrain.robotOrientedDrive(output, 0, 0);
+        
+        errorPrior = error;
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return Robot.tv == 1 || Math.abs(error) < RobotConst.visionAngleMargin;
 	}
 
 	// Called once after isFinished returns true

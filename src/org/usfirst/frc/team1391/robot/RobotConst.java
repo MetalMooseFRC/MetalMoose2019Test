@@ -19,5 +19,11 @@ public class RobotConst {
 	public final static double swerveI = 0.1;
 	public final static double swerveD = 0.1;
 	
+	//PID for vision
+	public final static double visionP = 0.001;
+	public final static double visionI = 0;
+	public final static double visionD = 0;
+
+	public final static double visionAngleMargin = 1;
 	
 }

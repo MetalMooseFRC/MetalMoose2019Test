@@ -34,7 +34,13 @@ public class Drivetrain extends Subsystem {
 		setDefaultCommand(new DrivetrainSwerve());
 	}
 	
-	public void drive(double x1, double y1, double x2) {
+	//Move based on robot's pointed direction
+	public void robotOrientedDrive(double x1, double y1, double x2) {
 		swerveDrive.move(x1, y1, x2);
+	}
+
+	//Move based on field directions
+	public void fieldOrientedDrive() {
+		
 	}
 }
