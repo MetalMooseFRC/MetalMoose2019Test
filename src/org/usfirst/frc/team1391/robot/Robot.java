@@ -12,6 +12,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import org.usfirst.frc.team1391.robot.subsystems.Drivetrain;
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,6 +27,14 @@ import org.usfirst.frc.team1391.robot.subsystems.Drivetrain;
 public class Robot extends TimedRobot {
 	public static final Drivetrain myDrivetrain = new Drivetrain();
 	public static OI myOI;
+
+	//VISION
+	public static NetworkTable limelight = NetworkTableInstance.getDefault().getTable("limelight");
+	public static NetworkTableEntry tv = limelight.getEntry("tv");
+	public static NetworkTableEntry tx = limelight.getEntry("tx");
+	public static NetworkTableEntry ty = limelight.getEntry("ty");
+	public static NetworkTableEntry ta = limelight.getEntry("ta");
+
 
 	Command myAutonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -107,6 +119,17 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+
+		int isValidTarget = tv.getInt();
+		double xAngle = tx.getDouble(0.0);
+		double yAngle = ty.getDouble(0.0);
+		double area = ta.getDouble(0.0);
+
+		if (isValidTarget) {
+			System.out.println("x: " + xAngle + " y: " + yAngle);
+			System.out.println("area: " + area);
+		}
+
 	}
 
 	/**
