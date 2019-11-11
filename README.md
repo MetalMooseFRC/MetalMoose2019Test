@@ -7,4 +7,21 @@ Feel free to mess around on this repository. Commit some stuff. There may be som
 ## Beta Tests
 This repository will be used to develop code for swerve and vision. We are using AndyMark's swerve modules and the LimeLight for vision
 
+<<<<<<< Updated upstream
 import Java.util*
+=======
+Syntax Error
+
+Error
+
+Error
+Error
+Error
+WARNING
+WARNING
+
+
+>>>>>>> Stashed changes
+Error
+Error
+Error
